@@ -1,5 +1,7 @@
 package com.naturalprogrammer.np01.profile.services;
 
+import javax.validation.Valid;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -27,7 +29,8 @@ public class ProfileService {
 	private ProfileRepository profileRepository;
 	
 	@PreAuthorize("isAuthenticated()")
-	public Profile upsertProfile(ProfileForm form) {
+	@Transactional(propagation=Propagation.SUPPORTS, readOnly=false)
+	public Profile upsertProfile(@Valid ProfileForm form) {
 		
 		UserDto user = LecwUtils.currentUser();
 		LecUtils.ensureAuthority(user.isGoodAdmin() || user.getId().equals(
@@ -36,7 +39,7 @@ public class ProfileService {
 		
 		return profileRepository.findByUserId(form.getUserId())
 				.map(profile -> updateProfile(profile, form))
-				.orElse(newProfile(form));
+				.orElse(createProfile(form));
 	}
 	
 	private Profile updateProfile(Profile profile, ProfileForm form) {
@@ -47,7 +50,7 @@ public class ProfileService {
 		return profileRepository.save(profile);
 	}
 
-	private Profile newProfile(ProfileForm form) {
+	private Profile createProfile(ProfileForm form) {
 
 		Profile profile = new Profile();
 		profile.setUserId(form.getUserId());

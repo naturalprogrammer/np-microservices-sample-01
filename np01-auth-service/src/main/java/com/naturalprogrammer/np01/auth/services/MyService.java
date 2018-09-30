@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.naturalprogrammer.np01.auth.domain.User;
 import com.naturalprogrammer.spring.lemon.LemonService;
 import com.naturalprogrammer.spring.lemon.commons.security.UserDto;
+import com.naturalprogrammer.spring.lemon.commonsjpa.LecjUtils;
 import com.naturalprogrammer.spring.lemon.util.LemonUtils;
 
 @Service
@@ -27,7 +28,7 @@ public class MyService extends LemonService<User, Long> {
 
         user.setName(updatedUser.getName());
 
-        LemonUtils.afterCommit(() -> {
+        LecjUtils.afterCommit(() -> {
             if (currentUser.getId().equals(user.getId().toString()))
                 currentUser.setTag(user.toTag());
         });
@@ -65,7 +66,7 @@ public class MyService extends LemonService<User, Long> {
     }
 
 	@Override
-	protected Long toId(String id) {
+	public Long toId(String id) {
 		
 		return Long.valueOf(id);
 	}

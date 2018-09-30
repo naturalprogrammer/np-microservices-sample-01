@@ -10,7 +10,6 @@ import com.naturalprogrammer.np01.lib001.scan.Lib001Configuration;
 		Np01ProfileServiceApplication.class,
 		Lib001Configuration.class
 })
-@EnableTransactionManagement
 public class Np01ProfileServiceApplication {
 
 	public static void main(String[] args) {

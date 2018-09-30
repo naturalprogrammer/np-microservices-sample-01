@@ -20,7 +20,7 @@
 	
 	    <dependency>
 	        <groupId>com.naturalprogrammer.spring-lemon</groupId>
-	        <artifactId>spring-lemon-commons-web</artifactId>
+	        <artifactId>spring-lemon-commons-jpa</artifactId>
 	        <version>${spring-lemon.version}</version>
 	    </dependency>
 
