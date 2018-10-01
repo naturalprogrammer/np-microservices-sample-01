@@ -2,7 +2,6 @@ package com.naturalprogrammer.np01.profile;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.naturalprogrammer.np01.lib001.scan.Lib001Configuration;
 

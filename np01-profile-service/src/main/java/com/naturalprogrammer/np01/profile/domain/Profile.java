@@ -1,8 +1,6 @@
 package com.naturalprogrammer.np01.profile.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 import com.naturalprogrammer.spring.lemon.commonsjpa.LemonEntity;
 

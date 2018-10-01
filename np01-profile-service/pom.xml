@@ -18,10 +18,22 @@
 
 	<dependencies>
 	
+	    <dependency>
+	        <groupId>com.naturalprogrammer.spring-lemon</groupId>
+	        <artifactId>spring-lemon-commons-jpa</artifactId>
+	        <version>${spring-lemon.version}</version>
+	    </dependency>
+
 		<dependency>
 			<groupId>com.naturalprogrammer.np01</groupId>
 			<artifactId>np01-lib-001</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
 		</dependency>
 
 		<dependency>

@@ -9,7 +9,6 @@ import com.naturalprogrammer.np01.auth.domain.User;
 import com.naturalprogrammer.spring.lemon.LemonService;
 import com.naturalprogrammer.spring.lemon.commons.security.UserDto;
 import com.naturalprogrammer.spring.lemon.commonsjpa.LecjUtils;
-import com.naturalprogrammer.spring.lemon.util.LemonUtils;
 
 @Service
 public class MyService extends LemonService<User, Long> {

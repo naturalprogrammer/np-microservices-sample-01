@@ -18,12 +18,6 @@
 
 	<dependencies>
 	
-	    <dependency>
-	        <groupId>com.naturalprogrammer.spring-lemon</groupId>
-	        <artifactId>spring-lemon-commons-jpa</artifactId>
-	        <version>${spring-lemon.version}</version>
-	    </dependency>
-
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
@@ -43,6 +37,12 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+
+	    <dependency>
+	        <groupId>com.naturalprogrammer.spring-lemon</groupId>
+	        <artifactId>spring-lemon-commons</artifactId>
+	        <version>${spring-lemon.version}</version>
+	    </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

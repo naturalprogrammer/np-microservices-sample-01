@@ -1,6 +1,5 @@
 package com.naturalprogrammer.np01.profile.forms;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -14,10 +13,6 @@ public class ProfileForm {
 
 	@NotNull
 	private Long userId;
-
-	@NotBlank
-	@Size(max=100)
-	private String name;
 
 	@URL @Size(max=1024)
 	private String website;

@@ -29,7 +29,7 @@ public class ProfileService {
 	private ProfileRepository profileRepository;
 	
 	@PreAuthorize("isAuthenticated()")
-	@Transactional(propagation=Propagation.SUPPORTS, readOnly=false)
+	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
 	public Profile upsertProfile(@Valid ProfileForm form) {
 		
 		UserDto user = LecwUtils.currentUser();
