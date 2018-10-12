@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import com.naturalprogrammer.np01.profile.domain.Profile;
+import com.naturalprogrammer.np01.profile.feign.AuthClient;
 import com.naturalprogrammer.np01.profile.forms.ProfileForm;
 import com.naturalprogrammer.np01.profile.repositories.ProfileRepository;
 import com.naturalprogrammer.spring.lemon.commons.security.UserDto;
@@ -27,6 +28,7 @@ public class ProfileService {
 	
 	private static final Log log = LogFactory.getLog(ProfileService.class);
 	private ProfileRepository profileRepository;
+	private AuthClient authClient;
 	
 	@PreAuthorize("isAuthenticated()")
 	@Transactional(propagation=Propagation.REQUIRED, readOnly=false)
@@ -37,11 +39,18 @@ public class ProfileService {
 				form.getUserId().toString()),
 				"com.naturalprogrammer.spring.notGoodAdminOrSameUser");
 		
+		validateUserExists(form.getUserId());
+		
 		return profileRepository.findByUserId(form.getUserId())
 				.map(profile -> updateProfile(profile, form))
 				.orElse(createProfile(form));
 	}
+
 	
+	private void validateUserExists(Long userId) {
+		authClient.fetchUserById(userId); // Will relay the 404 exception if user is not found in Auth service
+	}
+
 	private Profile updateProfile(Profile profile, ProfileForm form) {
 
 		profile.setWebsite(form.getWebsite());
