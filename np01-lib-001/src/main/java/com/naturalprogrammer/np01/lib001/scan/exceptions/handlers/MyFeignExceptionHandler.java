@@ -11,7 +11,7 @@ import com.naturalprogrammer.spring.lemon.exceptions.handlers.AbstractExceptionH
 public class MyFeignExceptionHandler extends AbstractExceptionHandler<MyFeignException> {
 
 	public MyFeignExceptionHandler() {
-		super(MyFeignException.class.getSimpleName());
+		super(MyFeignException.class);
 	}
 
 	@Override
